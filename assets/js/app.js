@@ -9,8 +9,6 @@
   }
 
   window.addEventListener("scroll", revealNow);
-
-  // Run immediately on load (this is the missing part)
   window.addEventListener("DOMContentLoaded", revealNow);
   window.addEventListener("load", revealNow);
 })();
