@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects | Design In Detail</title>
-<link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Design In Detail</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-<div id="page-loader"></div>
-<header class="header"><div class="container nav"><div class="logo">Design In Detail</div><nav><a href="index.html">Home</a><a href="about.html">About</a><a class="active" href="projects.html">Projects</a><a href="contact.html">Contact</a></nav></div></header>
-<section class="container section reveal">
-<h1>Projects</h1>
-<div class="projects-grid">
-<div class="project-card"><img src="assets/img/studio.png"><h3>Residential Living</h3></div>
-<div class="project-card"><img src="assets/img/coffee-table.png"><h3>Styling & Curation</h3></div>
-</div>
-</section>
-<footer class="footer">© Aphiwe Ngubeni</footer>
-<script src="assets/js/app.js"></script>
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">Design In Detail</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section reveal">
+    <h1>Projects</h1>
+    <p style="color:var(--muted);max-width:70ch;">
+      A selection of calm, warm interiors—materials first, then light, then the detail that makes a space feel finished.
+    </p>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="assets/img/studio.png" alt="Residential Living" />
+        <div class="pad">
+          <h3>Residential Living</h3>
+          <p>Soft neutrals, layered texture, and a clean, editorial finish.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/coffee-table.png" alt="Styling & Curation" />
+        <div class="pad">
+          <h3>Styling & Curation</h3>
+          <p>Accessories, art, and objects placed with restraint and intention.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/img/materials.png" alt="Material Direction" />
+        <div class="pad">
+          <h3>Material Direction</h3>
+          <p>Stone, timber, fabric—balanced palettes that feel timeless.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">© Aphiwe Ngubeni</footer>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
