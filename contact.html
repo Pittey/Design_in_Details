@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Design In Detail</title>
 
-  <!-- Fonts (same luxury combo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -13,8 +12,6 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <div id="page-loader"></div>
-
   <header class="header">
     <div class="container nav">
       <div class="logo">Design In Detail</div>
@@ -29,62 +26,49 @@
 
   <main class="container contact-shell reveal">
     <section class="contact-grid">
-      <!-- LEFT: Image panel -->
       <aside class="contact-left">
         <div class="contact-photo">
-          <!-- Pick your best hero image here -->
           <img src="assets/img/studio.png" alt="Design studio" />
           <div class="photo-gradient"></div>
 
           <div class="photo-copy">
             <div class="pill">Design In Detail</div>
             <h1>Let’s design<br><span>something remarkable.</span></h1>
-            <p>
-              Tell us your goals, timeline, and vibe. We’ll respond within 24–48 hours with next steps.
-            </p>
+            <p>Tell us your goals, timeline, and vibe. We’ll respond within 24–48 hours.</p>
           </div>
         </div>
 
         <div class="contact-mini">
           <div class="mini-block">
             <div class="mini-title">Project Types</div>
-            <div class="mini-items">
-              <span>Residential</span><span>Commercial</span><span>Styling</span>
-            </div>
+            <div class="mini-items"><span>Residential</span><span>Commercial</span><span>Styling</span></div>
           </div>
           <div class="mini-block">
             <div class="mini-title">Signature Style</div>
-            <div class="mini-items">
-              <span>Calm</span><span>Warm</span><span>Timeless</span>
-            </div>
+            <div class="mini-items"><span>Calm</span><span>Warm</span><span>Timeless</span></div>
           </div>
         </div>
       </aside>
 
-      <!-- RIGHT: Form + details -->
       <section class="contact-right">
         <div class="contact-card">
           <div class="card-head">
             <h2>Contact</h2>
-            <p class="muted">
-              Prefer email or phone? That’s fine. You can reach us directly below.
-            </p>
+            <p class="muted">Prefer email or phone? You can reach us directly below.</p>
           </div>
 
           <form class="lux-form" id="contactForm">
             <div class="field">
-              <label for="fullName">Full Name</label>
-              <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
+              <label>Full Name</label>
+              <input type="text" placeholder="Your full name" required />
             </div>
-
             <div class="field">
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" placeholder="you@email.com" required />
+              <label>E-mail</label>
+              <input type="email" placeholder="you@email.com" required />
             </div>
-
             <div class="field">
-              <label for="budget">Estimated Budget</label>
-              <select id="budget" name="budget" required>
+              <label>Budget</label>
+              <select required>
                 <option value="" selected disabled>Select budget range</option>
                 <option>R10k – R30k</option>
                 <option>R30k – R80k</option>
@@ -92,10 +76,9 @@
                 <option>R200k+</option>
               </select>
             </div>
-
             <div class="field">
-              <label for="timeline">Timeline</label>
-              <select id="timeline" name="timeline" required>
+              <label>Timeline</label>
+              <select required>
                 <option value="" selected disabled>When do you want to start?</option>
                 <option>Immediately</option>
                 <option>In 2–4 weeks</option>
@@ -105,15 +88,13 @@
             </div>
 
             <div class="field full">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="6"
-                placeholder="Tell us about your space (size, rooms, mood, must-haves)..."
-                required></textarea>
+              <label>Message</label>
+              <textarea rows="6" placeholder="Tell us about your project..." required></textarea>
             </div>
 
             <div class="actions full">
               <button class="btn btn-dark" type="submit">Send Message</button>
-              <span class="note">We’ll never share your details. © Aphiwe Ngubeni</span>
+              <span class="note">© Aphiwe Ngubeni</span>
             </div>
           </form>
 
@@ -124,18 +105,16 @@
               <div class="label">Email</div>
               <a href="mailto:yourname@email.com">yourname@email.com</a>
             </div>
-
             <div class="detail">
               <div class="label">Phone</div>
               <a href="tel:+27000000000">+27 00 000 0000</a>
             </div>
-
             <div class="detail">
               <div class="label">Social</div>
               <div class="socials">
-                <a class="social" href="#" aria-label="Instagram">IG</a>
-                <a class="social" href="#" aria-label="Facebook">FB</a>
-                <a class="social" href="#" aria-label="X">X</a>
+                <a class="social" href="#">IG</a>
+                <a class="social" href="#">FB</a>
+                <a class="social" href="#">X</a>
               </div>
             </div>
           </div>
@@ -146,10 +125,8 @@
   </main>
 
   <footer class="footer">© Aphiwe Ngubeni</footer>
-
   <script src="assets/js/app.js"></script>
 
-  <!-- tiny UX: fake submit success (no backend yet) -->
   <script>
     document.getElementById('contactForm')?.addEventListener('submit', function(e){
       e.preventDefault();
@@ -157,7 +134,7 @@
       const original = btn.textContent;
       btn.textContent = 'Sent — we will reply soon';
       btn.disabled = true;
-      setTimeout(() => { btn.textContent = original; btn.disabled = false; this.reset(); }, 2500);
+      setTimeout(() => { btn.textContent = original; btn.disabled = false; this.reset(); }, 2200);
     });
   </script>
 </body>
