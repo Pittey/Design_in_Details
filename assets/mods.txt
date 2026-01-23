@@ -1,0 +1,85 @@
+
+   SELECT
+        modified_date AS event_time,
+        modified_by   AS username,
+        'Last Update' AS description
+    FROM rbct_trains
+    WHERE modified_date IS NOT NULL
+      AND rbct_train_name = '{0}'
+      AND rbct_train_creation_date = TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss')
+
+    UNION ALL
+
+    SELECT
+        event_time,
+        username,
+        SUBSTR(description, 1, INSTR(description, ',') - 1) || ' - ' ||
+        SUBSTR(description,
+               INSTR(description, 'Column value changed from') + 26,
+               LENGTH(description))
+    FROM (
+        SELECT
+            event_time,
+            username,
+            SUBSTR(description, INSTR(description, 'Col :') + 6, LENGTH(description)) AS description
+        FROM audit_events
+        WHERE audit_event_code = 'CTUP'
+          AND description LIKE '%Table : CONSIGNMENTS%'
+          AND INSTR(description, '{0}') > 0
+          AND event_time BETWEEN TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss') - 2
+                             AND TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss') + 50
+        AND event_time > SYSDATE - 14
+        
+        UNION
+        
+        SELECT
+            event_time,
+            username,
+            SUBSTR(description, INSTR(description, 'Col :') + 6, LENGTH(description)) AS description
+        FROM audit_events
+        WHERE audit_event_code = 'CTUP'
+          AND description LIKE '%Table : RBCT_TRAINS%'
+          AND description NOT LIKE '%Created'
+          AND INSTR(description, '{0}') > 0
+          AND event_time BETWEEN TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss') - 2
+                             AND TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss') + 50
+          AND event_time > SYSDATE - 14
+    )
+
+    UNION ALL
+
+    SELECT
+        rbct_train_creation_date,
+        created_by,
+        'Train Created'
+    FROM rbct_trains
+    WHERE rbct_train_name = '{0}'
+      AND rbct_train_creation_date = TO_DATE('{1}', 'DD/MM/YYYY HH24:mi:ss')
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+-Get your train Train 
+-From RBCT trains table 
+
+SELECT   rbct_train_name,rbct_train_creation_date,tfr_consignment
+  FROM     tcs.rbct_trains
+  ORDER BY rbct_train_creation_date DESC
+   FETCH FIRST 10 ROWS ONLY 
+   
+-usE CONSIGNMENTS nUMBER TO SEARCH FROM THE APPLICATION 
+									--OPS-TRAIN Management --
+
+-----------------------------------------------------------------------------------
+
+SELECT  
+        rbct_train_creation_date,
+        created_by,
+        'Train Created'
+    FROM TRAIN_CHANGE_LOGS_VIEW
+    WHERE rbct_train_name = 'TEST2'
+      AND rbct_train_creation_date = TO_DATE('14/01/2026 12:43:31', 'DD/MM/YYYY HH24:mi:ss')
