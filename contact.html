@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+
   <header class="header">
     <div class="container nav">
       <div class="logo">Design In Detail</div>
@@ -26,6 +27,7 @@
 
   <main class="container contact-shell reveal">
     <section class="contact-grid">
+
       <aside class="contact-left">
         <div class="contact-photo">
           <img src="assets/img/studio.png" alt="Design studio" />
@@ -41,17 +43,26 @@
         <div class="contact-mini">
           <div class="mini-block">
             <div class="mini-title">Project Types</div>
-            <div class="mini-items"><span>Residential</span><span>Commercial</span><span>Styling</span></div>
+            <div class="mini-items">
+              <span>Residential</span>
+              <span>Commercial</span>
+              <span>Styling</span>
+            </div>
           </div>
           <div class="mini-block">
             <div class="mini-title">Signature Style</div>
-            <div class="mini-items"><span>Calm</span><span>Warm</span><span>Timeless</span></div>
+            <div class="mini-items">
+              <span>Calm</span>
+              <span>Warm</span>
+              <span>Timeless</span>
+            </div>
           </div>
         </div>
       </aside>
 
       <section class="contact-right">
         <div class="contact-card">
+
           <div class="card-head">
             <h2>Contact</h2>
             <p class="muted">Prefer email or phone? You can reach us directly below.</p>
@@ -62,10 +73,12 @@
               <label>Full Name</label>
               <input type="text" placeholder="Your full name" required />
             </div>
+
             <div class="field">
               <label>E-mail</label>
               <input type="email" placeholder="you@email.com" required />
             </div>
+
             <div class="field">
               <label>Budget</label>
               <select required>
@@ -76,6 +89,7 @@
                 <option>R200k+</option>
               </select>
             </div>
+
             <div class="field">
               <label>Timeline</label>
               <select required>
@@ -94,7 +108,7 @@
 
             <div class="actions full">
               <button class="btn btn-dark" type="submit">Send Message</button>
-              <span class="note">© Design In Detail </span>
+              <span class="note">© Design In Detail</span>
             </div>
           </form>
 
@@ -103,39 +117,65 @@
           <div class="details">
             <div class="detail">
               <div class="label">Email</div>
-              <a href="mailto:yourname@email.com">Amandandlangisa7@gmail.com</a>
+              <a href="mailto:Didprojectsza@gmail.com">Didprojectsza@gmail.com</a>
             </div>
             <div class="detail">
               <div class="label">Phone</div>
-              <a href="tel:+27000000000">+27 (62) 608-1908</a>
-            </div>
-            <div class="detail">
-              <div class="label">Social</div>
-              <div class="socials">
-                <a class="social" href="#">IG</a>
-                <a class="social" href="#">FB</a>
-                <a class="social" href="#">X</a>
-              </div>
+              <a href="tel:+27626081908">+27 (62) 608-1908</a>
             </div>
           </div>
 
         </div>
       </section>
+
     </section>
   </main>
 
   <footer class="footer">© Design In Detail</footer>
+
   <script src="assets/js/app.js"></script>
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <script>
-    document.getElementById('contactForm')?.addEventListener('submit', function(e){
+    (function () {
+      emailjs.init("gKDuKtr2DcJNv7ZFc");
+    })();
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      const btn = this.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.textContent = 'Sent — we will reply soon';
+
+      const btn = this.querySelector("button[type='submit']");
+      const originalText = btn.textContent;
+
+      btn.textContent = "Sending...";
       btn.disabled = true;
-      setTimeout(() => { btn.textContent = original; btn.disabled = false; this.reset(); }, 2200);
+
+      emailjs.send("service_0hztl6a", "template_2lnueov", {
+        from_name: this.querySelector("input[placeholder='Your full name']").value,
+        reply_to: this.querySelector("input[placeholder='you@email.com']").value,
+        budget: this.querySelector("select:nth-of-type(1)").value,
+        timeline: this.querySelector("select:nth-of-type(2)").value,
+        message: this.querySelector("textarea").value
+      })
+      .then(() => {
+        btn.textContent = "Message Sent ✔";
+        this.reset();
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        alert("Message failed. Please try again.");
+        btn.textContent = originalText;
+        btn.disabled = false;
+        console.error("EmailJS Error:", error);
+      });
     });
   </script>
+
 </body>
 </html>
