@@ -32,10 +32,30 @@
       <div class="contact-photo">
         <img src="assets/img/studio.png" alt="Design studio" />
         <div class="photo-gradient"></div>
+
         <div class="photo-copy">
           <div class="pill">Design In Detail</div>
           <h1>Let’s design<br><span>something remarkable.</span></h1>
           <p>Tell us your goals, timeline, and vibe. We’ll respond within 24–48 hours.</p>
+        </div>
+      </div>
+
+      <div class="contact-mini">
+        <div class="mini-block">
+          <div class="mini-title">Project Types</div>
+          <div class="mini-items">
+            <span>Residential</span>
+            <span>Commercial</span>
+            <span>Styling</span>
+          </div>
+        </div>
+        <div class="mini-block">
+          <div class="mini-title">Signature Style</div>
+          <div class="mini-items">
+            <span>Calm</span>
+            <span>Warm</span>
+            <span>Timeless</span>
+          </div>
         </div>
       </div>
     </aside>
@@ -43,15 +63,20 @@
     <section class="contact-right">
       <div class="contact-card">
 
+        <div class="card-head">
+          <h2>Contact</h2>
+          <p class="muted">Prefer email or WhatsApp? Share your details below and we’ll get back to you.</p>
+        </div>
+
         <form class="lux-form" id="contactForm">
           <div class="field">
             <label>Full Name</label>
-            <input type="text" name="from_name" required />
+            <input type="text" name="from_name" placeholder="Your full name" required />
           </div>
 
           <div class="field">
             <label>E-mail</label>
-            <input type="email" name="reply_to" required />
+            <input type="email" name="reply_to" placeholder="you@email.com" required />
           </div>
 
           <div class="field">
@@ -78,13 +103,27 @@
 
           <div class="field full">
             <label>Message</label>
-            <textarea name="message" rows="6" required></textarea>
+            <textarea name="message" rows="6" placeholder="Tell us about your space, your goals, and your vibe..." required></textarea>
           </div>
 
           <div class="actions full">
             <button class="btn btn-dark" type="submit">Send Message</button>
+            <span class="note">Aphiwe Ngubeni</span>
           </div>
         </form>
+
+        <div class="divider"></div>
+
+        <div class="details">
+          <div class="detail">
+            <div class="label">Email</div>
+            <a href="mailto:Didprojectsza@gmail.com">Didprojectsza@gmail.com</a>
+          </div>
+          <div class="detail">
+            <div class="label">Phone</div>
+            <a href="tel:+27626081908">+27 62 608 1908</a>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -104,7 +143,7 @@
     e.preventDefault();
 
     const form = this;
-    const btn = form.querySelector("button");
+    const btn = form.querySelector("button[type='submit']");
     const original = btn.textContent;
 
     btn.textContent = "Sending...";
@@ -133,15 +172,29 @@
         btn.disabled = false;
       }, 3000);
     })
-    .catch(err => {
+    .catch((err) => {
       clearTimeout(timeout);
       btn.textContent = original;
       btn.disabled = false;
       alert("Message failed. Please try again.");
-      console.error(err);
+      console.error("EmailJS Error:", err);
     });
   });
 </script>
+
+<!-- WhatsApp Floating Button (SA: +27 0626081908 -> 27626081908) -->
+<a
+  href="https://wa.me/27626081908?text=Hi%20Design%20In%20Detail,%20I%20would%20like%20to%20enquire%20about%20your%20interior%20design%20services."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+  />
+</a>
 
 </body>
 </html>
