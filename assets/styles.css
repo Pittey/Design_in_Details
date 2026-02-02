@@ -94,7 +94,7 @@ nav a.active{ color:var(--text); }
 .section{ padding:90px 0; }
 
 /* =================================================
-   INDEX HERO (ONLY TEXT CHANGE WAS REQUESTED)
+   HERO (index)
 ================================================= */
 .hero{
   display:grid;
@@ -104,6 +104,12 @@ nav a.active{ color:var(--text); }
   align-items:center;
 }
 
+/* Default hero heading (if no class is used) */
+.hero h1{
+  font-size:clamp(34px, 4.4vw, 60px);
+  letter-spacing:-0.7px;
+  line-height:1.02;
+}
 .hero p{ color:var(--muted); max-width:50ch; }
 
 .hero-img img{
@@ -112,34 +118,23 @@ nav a.active{ color:var(--text); }
   box-shadow:0 24px 70px rgba(0,0,0,.10);
 }
 
-/* ✅ ONLY change: cursive hero text */
-.hero-script{
-  font-family:"Sacramento", cursive;
+/* ✅ FORCE cursive ONLY when you use class hero-script */
+.hero h1.hero-script,
+.hero h1.hero-script span{
+  font-family:"Sacramento", cursive !important;
   font-weight:400;
-  letter-spacing:.5px;
+  letter-spacing:.6px;
 }
-.hero-script span{
-  font-family:"Sacramento", cursive;
+.hero h1.hero-script{
+  font-size:clamp(46px, 6vw, 90px);
+  line-height:1.01;
+}
+.hero h1.hero-script span{
   color:var(--accent);
 }
 
 /* =================================================
-   INDEX GALLERY (RESTORED – NO STRUCTURE CHANGES)
-================================================= */
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:22px;
-  margin-top:18px;
-}
-.gallery img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 18px 55px rgba(0,0,0,.06);
-}
-
-/* =================================================
-   PROJECTS (UNCHANGED)
+   PROJECTS (projects.html cards)
 ================================================= */
 .projects-grid{
   display:grid;
@@ -154,6 +149,11 @@ nav a.active{ color:var(--text); }
   background:var(--card);
   border:1px solid var(--line);
   box-shadow:0 18px 55px rgba(0,0,0,.05);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.project-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 70px rgba(0,0,0,.08);
 }
 .project-card img{
   width:100%;
@@ -162,7 +162,7 @@ nav a.active{ color:var(--text); }
   display:block;
 }
 .project-card .pad{ padding:16px; }
-.project-card h3{ margin:0 0 6px; }
+.project-card h3{ margin:0 0 6px 0; }
 .project-card p{
   color:var(--muted);
   margin:0;
@@ -170,7 +170,39 @@ nav a.active{ color:var(--text); }
 }
 
 /* =================================================
-   CONTACT PAGE (UNCHANGED)
+   ✅ INDEX "Selected Work" GALLERY
+   You said: mimic projects.html WITHOUT changing HTML.
+   Your HTML is <div class="gallery"><img>...</div>
+   So we style those <img> as PROJECT cards.
+================================================= */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:22px;
+  margin-top:18px;
+}
+
+/* Make each image feel like a card (same as project-card) */
+.gallery img{
+  width:100%;
+  height:220px;                 /* ✅ same height as projects */
+  object-fit:cover;
+  display:block;
+  border-radius:22px;           /* ✅ matches project-card */
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 18px 55px rgba(0,0,0,.05);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+/* Hover match */
+.gallery img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 70px rgba(0,0,0,.08);
+}
+
+/* =================================================
+   CONTACT PAGE
 ================================================= */
 .contact-shell{ padding:70px 0 110px; }
 
@@ -181,6 +213,8 @@ nav a.active{ color:var(--text); }
   align-items:start;
 }
 
+.contact-left{ display:flex; flex-direction:column; gap:18px; }
+
 .contact-photo{
   position:relative;
   border-radius:28px;
@@ -189,7 +223,6 @@ nav a.active{ color:var(--text); }
   box-shadow:0 24px 70px rgba(0,0,0,.09);
   background:#e9e5de;
 }
-
 .contact-photo img{
   width:100%;
   height:100%;
@@ -197,19 +230,30 @@ nav a.active{ color:var(--text); }
   display:block;
   transform:scale(1.03);
 }
-
 .photo-gradient{
   position:absolute;
   inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.38) 100%);
 }
-
 .photo-copy{
   position:absolute;
   left:26px;
   right:26px;
   bottom:24px;
   color:#fff;
+}
+.photo-copy h1{
+  margin:10px 0 10px;
+  font-size:clamp(36px, 4.2vw, 58px);
+  letter-spacing:-0.6px;
+  line-height:1.02;
+}
+.photo-copy h1 span{ color:#f4efe7; }
+.photo-copy p{
+  margin:0;
+  max-width:46ch;
+  opacity:.92;
+  font-size:14px;
 }
 
 .pill{
@@ -218,17 +262,100 @@ nav a.active{ color:var(--text); }
   border-radius:999px;
   background:rgba(255,255,255,.16);
   border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(8px);
+  backdrop-filter: blur(8px);
   font-size:12px;
 }
 
+.contact-mini{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.mini-block{
+  border-radius:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:16px;
+  box-shadow:0 18px 55px rgba(0,0,0,.05);
+}
+.mini-title{
+  font-family:"Playfair Display", serif;
+  font-weight:600;
+  margin-bottom:10px;
+  font-size:14px;
+}
+.mini-items{ display:flex; flex-wrap:wrap; gap:8px; }
+.mini-items span{
+  font-size:12px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.06);
+}
+
+.contact-card{
+  border-radius:28px;
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 24px 70px rgba(0,0,0,.06);
+}
+
+.card-head h2{
+  margin:0 0 6px;
+  font-size:34px;
+  letter-spacing:-0.4px;
+}
+.muted{
+  color:var(--muted);
+  margin:0 0 18px;
+  font-size:14px;
+}
+
+.lux-form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 16px;
+}
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field.full{ grid-column:1/-1; }
+.field label{ font-size:12px; color:var(--muted); letter-spacing:.2px; }
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.10);
+  background:rgba(255,255,255,.72);
+  outline:none;
+  font-family:Inter, sans-serif;
+  transition:.2s ease;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(200,185,166,.95);
+  box-shadow:0 0 0 4px rgba(200,185,166,.25);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:2px;
+}
+
 /* =================================================
-   SHOP (ONLY IMAGE INDENT – NO OTHER CHANGES)
+   SHOP (indent + same vibe)
 ================================================= */
 .shop-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap:22px;
+  margin-top:28px;
 }
 
 .shop-card{
@@ -237,7 +364,14 @@ nav a.active{ color:var(--text); }
   border:1px solid var(--line);
   box-shadow:0 18px 55px rgba(0,0,0,.05);
   padding:10px;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
+
+.shop-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 28px 70px rgba(0,0,0,.08);
+}
+
 .shop-card img{
   width:100%;
   height:220px;
@@ -245,10 +379,19 @@ nav a.active{ color:var(--text); }
   display:block;
   border-radius:16px;
 }
+
 .shop-card .pad{ padding:14px 10px 6px; }
+.shop-card h3{ margin:0 0 6px 0; }
+.shop-card p{ color:var(--muted); margin:0 0 12px 0; font-size:13px; }
+
+.shop-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
 
 /* =================================================
-   WHATSAPP FLOAT (UNCHANGED)
+   WHATSAPP FLOAT
 ================================================= */
 .whatsapp-float{
   position:fixed;
@@ -258,23 +401,33 @@ nav a.active{ color:var(--text); }
   height:56px;
   border-radius:999px;
   background:rgba(20,20,20,.92);
+  border:1px solid rgba(255,255,255,.10);
   display:flex;
   align-items:center;
   justify-content:center;
   z-index:9999;
   box-shadow:0 18px 55px rgba(0,0,0,.18);
+  transition:transform .2s ease, opacity .2s ease;
+}
+.whatsapp-float:hover{
+  transform:translateY(-2px);
+  opacity:.95;
 }
 .whatsapp-float img{
   width:28px;
   height:28px;
+  display:block;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* =================================================
+   RESPONSIVE
+================================================= */
 @media (max-width:980px){
   .hero{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr; }
   .projects-grid{ grid-template-columns:1fr; }
   .shop-grid{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
+  .lux-form{ grid-template-columns:1fr; }
   .contact-photo{ min-height:420px; }
 }
