@@ -11,7 +11,7 @@
   <!-- Base fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Cursive font for ONLY the hero headline -->
+  <!-- Cursive font ONLY for the hero headline -->
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -33,12 +33,11 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero container reveal">
     <div>
+      <!-- ONLY CHANGE: added class hero-script -->
       <h1 class="hero-script">
-        Interior Design<br>
-        <span>In Every Detail</span>
+        Interior Design<br><span>In Every Detail</span>
       </h1>
 
       <p>Luxury interiors shaped by light, restraint, and timeless materiality.</p>
@@ -46,46 +45,26 @@
     </div>
 
     <div class="hero-img">
+      <!-- RESTORED IMAGE PATH -->
       <img src="assets/coffee-table.png" alt="Coffee table styling" loading="lazy" />
     </div>
   </section>
 
-  <!-- SELECTED WORK (NOW MATCHES PROJECTS STYLE) -->
   <section class="section container reveal">
     <h2>Selected Work</h2>
     <p style="color:var(--muted);max-width:58ch;">
       A calm, editorial approach—materials, proportion, and warmth. Designed to last.
     </p>
 
-    <div class="featured-grid">
-      <article class="project-card">
-        <img src="assets/studio.png" alt="Studio" loading="lazy" />
-        <div class="pad">
-          <h3>Studio</h3>
-          <p>Where concepts become reality.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="assets/materials.png" alt="Materials" loading="lazy" />
-        <div class="pad">
-          <h3>Materials</h3>
-          <p>Calm palettes, premium textures.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="assets/process-collage.png" alt="Process collage" loading="lazy" />
-        <div class="pad">
-          <h3>Process</h3>
-          <p>From direction to refined details.</p>
-        </div>
-      </article>
+    <!-- RESTORED ORIGINAL GALLERY (3 IMAGES) -->
+    <div class="gallery">
+      <img src="assets/studio.png" alt="Studio" loading="lazy" />
+      <img src="assets/materials.png" alt="Materials" loading="lazy" />
+      <img src="assets/process-collage.png" alt="Process collage" loading="lazy" />
     </div>
   </section>
 
   <footer class="footer">© Designs In Details (Pty) LTD</footer>
   <script src="assets/js/app.js"></script>
-
 </body>
 </html>
