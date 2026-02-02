@@ -38,7 +38,6 @@ a{ color:inherit; }
 }
 
 /* ================= HEADER ================= */
-
 .header{ padding:26px 0; }
 
 .nav{
@@ -64,7 +63,6 @@ nav a{
 nav a.active{ color:var(--text); }
 
 /* ================= FOOTER ================= */
-
 .footer{
   text-align:center;
   padding:34px 0;
@@ -73,7 +71,6 @@ nav a.active{ color:var(--text); }
 }
 
 /* ================= BUTTONS ================= */
-
 .btn{
   display:inline-block;
   padding:14px 28px;
@@ -88,7 +85,6 @@ nav a.active{ color:var(--text); }
 .btn-dark{ background:var(--dark); }
 
 /* ================= REVEAL ================= */
-
 .reveal{
   opacity:0;
   transform:translateY(28px);
@@ -101,7 +97,6 @@ nav a.active{ color:var(--text); }
 }
 
 /* ================= HERO ================= */
-
 .hero{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -110,17 +105,17 @@ nav a.active{ color:var(--text); }
   align-items:center;
 }
 
-/* 🔴 ONLY CHANGE YOU ASKED FOR (CURSIVE TEXT) */
+/* 🔥 THIS IS THE ONLY FONT CHANGE 🔥 */
 .hero h1{
-  font-family: "Sacramento", cursive;
-  font-weight:400;
+  font-family: "Great Vibes", cursive;
   font-size: clamp(48px, 5vw, 72px);
-  letter-spacing:0;
   line-height:1.05;
+  letter-spacing:0;
 }
 
+/* Keep span color only */
 .hero h1 span{
-  display:block;
+  color:var(--accent);
 }
 
 .hero p{
@@ -135,11 +130,9 @@ nav a.active{ color:var(--text); }
 }
 
 /* ================= SECTIONS ================= */
-
 .section{ padding:90px 0; }
 
 /* ================= GALLERY ================= */
-
 .gallery{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -154,7 +147,6 @@ nav a.active{ color:var(--text); }
 }
 
 /* ================= PROJECTS ================= */
-
 .projects-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -179,7 +171,9 @@ nav a.active{ color:var(--text); }
 
 .project-card .pad{ padding:16px; }
 
-.project-card h3{ margin:0 0 6px 0; }
+.project-card h3{
+  margin:0 0 6px 0;
+}
 
 .project-card p{
   color:var(--muted);
@@ -187,8 +181,7 @@ nav a.active{ color:var(--text); }
   font-size:13px;
 }
 
-/* ================= SHOP ================= */
-
+/* ================= SHOP (MATCH PROJECTS) ================= */
 .shop-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -213,7 +206,9 @@ nav a.active{ color:var(--text); }
 
 .shop-card .pad{ padding:16px; }
 
-.shop-card h3{ margin:0 0 6px 0; }
+.shop-card h3{
+  margin:0 0 6px 0;
+}
 
 .shop-card p{
   color:var(--muted);
@@ -222,12 +217,11 @@ nav a.active{ color:var(--text); }
 }
 
 /* ================= CONTACT ================= */
-
 .contact-shell{ padding:70px 0 110px; }
 
 .contact-grid{
   display:grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns:1.05fr 1fr;
   gap:36px;
 }
 
@@ -236,7 +230,6 @@ nav a.active{ color:var(--text); }
   border-radius:28px;
   overflow:hidden;
   min-height:560px;
-  box-shadow:0 24px 70px rgba(0,0,0,.09);
 }
 
 .contact-photo img{
@@ -248,27 +241,10 @@ nav a.active{ color:var(--text); }
 .photo-gradient{
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.00) 35%, rgba(0,0,0,.38) 100%);
-}
-
-.photo-copy{
-  position:absolute;
-  left:26px;
-  right:26px;
-  bottom:24px;
-  color:#fff;
-}
-
-.pill{
-  display:inline-flex;
-  padding:8px 12px;
-  border-radius:999px;
-  background: rgba(255,255,255,.16);
-  font-size:12px;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.38));
 }
 
 /* ================= RESPONSIVE ================= */
-
 @media (max-width: 980px){
   .hero{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:1fr; }
