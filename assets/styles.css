@@ -93,7 +93,10 @@ nav a.active{ color:var(--text); }
 /* Sections */
 .section{ padding:90px 0; }
 
-/* Hero */
+/* ===================== */
+/* INDEX HERO */
+/* ===================== */
+
 .hero{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -101,6 +104,7 @@ nav a.active{ color:var(--text); }
   padding:90px 0 40px;
   align-items:center;
 }
+
 .hero h1{
   font-size:clamp(34px, 4.4vw, 60px);
   letter-spacing:-0.7px;
@@ -108,32 +112,38 @@ nav a.active{ color:var(--text); }
 }
 .hero h1 span{ color:var(--accent); }
 .hero p{ color:var(--muted); max-width:50ch; }
+
 .hero-img img{
   width:100%;
   border-radius:26px;
   box-shadow:0 24px 70px rgba(0,0,0,.10);
 }
 
-/* Gallery */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-  margin-top:18px;
+/* ✅ Cursive headline ONLY (index hero heading) */
+.hero-script{
+  font-family:"Sacramento", cursive;
+  font-weight:400;
+  font-size:clamp(44px, 6vw, 86px);
+  line-height:1.02;
+  letter-spacing:.4px;
 }
-.gallery img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 18px 55px rgba(0,0,0,.06);
+.hero-script span{
+  display:block;
+  font-family:"Sacramento", cursive;
+  color:var(--accent);
 }
 
-/* Projects */
+/* ===================== */
+/* PROJECTS CARD STYLE */
+/* ===================== */
+
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:22px;
   margin-top:18px;
 }
+
 .project-card{
   border-radius:22px;
   overflow:hidden;
@@ -142,16 +152,19 @@ nav a.active{ color:var(--text); }
   box-shadow:0 18px 55px rgba(0,0,0,.05);
   transition:transform .25s ease, box-shadow .25s ease;
 }
+
 .project-card:hover{
   transform:translateY(-4px);
   box-shadow:0 28px 70px rgba(0,0,0,.08);
 }
+
 .project-card img{
   width:100%;
   height:220px;
   object-fit:cover;
   display:block;
 }
+
 .project-card .pad{ padding:16px; }
 .project-card h3{ margin:0 0 6px; }
 .project-card p{
@@ -160,13 +173,25 @@ nav a.active{ color:var(--text); }
   font-size:13px;
 }
 
-/* CONTACT */
+/* ✅ Index “Selected Work” now mimics Projects page */
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+  margin-top:18px;
+}
+
+/* ===================== */
+/* CONTACT PAGE */
+/* ===================== */
+
 .contact-shell{ padding:70px 0 110px; }
 
 .contact-grid{
   display:grid;
   grid-template-columns:1.05fr 1fr;
   gap:36px;
+  align-items:start;
 }
 
 .contact-photo{
@@ -175,17 +200,23 @@ nav a.active{ color:var(--text); }
   overflow:hidden;
   min-height:560px;
   box-shadow:0 24px 70px rgba(0,0,0,.09);
+  background:#e9e5de;
 }
+
 .contact-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
+  transform:scale(1.03);
 }
+
 .photo-gradient{
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.38) 100%);
+  background:linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.38) 100%);
 }
+
 .photo-copy{
   position:absolute;
   left:26px;
@@ -193,11 +224,65 @@ nav a.active{ color:var(--text); }
   bottom:24px;
   color:#fff;
 }
+
 .photo-copy h1{
-  font-size:clamp(36px,4.2vw,58px);
+  margin:10px 0 10px;
+  font-size:clamp(36px, 4.2vw, 58px);
   letter-spacing:-0.6px;
+  line-height:1.02;
 }
 .photo-copy h1 span{ color:#f4efe7; }
+.photo-copy p{
+  margin:0;
+  max-width:46ch;
+  opacity:.92;
+  font-size:14px;
+}
+
+.pill{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(8px);
+  font-size:12px;
+}
+
+.contact-mini{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.mini-block{
+  border-radius:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:16px;
+  box-shadow:0 18px 55px rgba(0,0,0,.05);
+}
+
+.mini-title{
+  font-family:"Playfair Display", serif;
+  font-weight:600;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.mini-items{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.mini-items span{
+  font-size:12px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.05);
+  border:1px solid rgba(0,0,0,.06);
+}
 
 .contact-card{
   border-radius:28px;
@@ -207,27 +292,63 @@ nav a.active{ color:var(--text); }
   box-shadow:0 24px 70px rgba(0,0,0,.06);
 }
 
+.card-head h2{
+  margin:0 0 6px;
+  font-size:34px;
+  letter-spacing:-0.4px;
+}
+
+.muted{
+  color:var(--muted);
+  margin:0 0 18px;
+  font-size:14px;
+}
+
 .lux-form{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px 16px;
 }
+
 .field{ display:flex; flex-direction:column; gap:8px; }
 .field.full{ grid-column:1/-1; }
-.field label{ font-size:12px; color:var(--muted); }
+
+.field label{
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.2px;
+}
 
 .field input,
 .field textarea,
 .field select{
+  width:100%;
   padding:14px;
   border-radius:16px;
   border:1px solid rgba(0,0,0,.10);
   background:rgba(255,255,255,.72);
-  font-family:Inter,sans-serif;
+  outline:none;
+  font-family:Inter, sans-serif;
+  transition:.2s ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:rgba(200,185,166,.95);
+  box-shadow:0 0 0 4px rgba(200,185,166,.25);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:2px;
 }
 
 /* ===================== */
-/* SHOP – MATCH PROJECTS + PROPER IMAGE INDENT */
+/* SHOP – INDENTED IMAGES */
 /* ===================== */
 
 .shop-grid{
@@ -242,7 +363,7 @@ nav a.active{ color:var(--text); }
   background:var(--card);
   border:1px solid var(--line);
   box-shadow:0 18px 55px rgba(0,0,0,.05);
-  padding:10px;                /* ← IMAGE INDENT */
+  padding:10px;                /* image indent */
   transition:transform .25s ease, box-shadow .25s ease;
 }
 
@@ -256,7 +377,7 @@ nav a.active{ color:var(--text); }
   height:220px;
   object-fit:cover;
   display:block;
-  border-radius:16px;          /* ← CLEAN INNER EDGE */
+  border-radius:16px;
 }
 
 .shop-card .pad{
@@ -280,7 +401,10 @@ nav a.active{ color:var(--text); }
   flex-wrap:wrap;
 }
 
-/* WhatsApp Floating Button */
+/* ===================== */
+/* WHATSAPP FLOAT */
+/* ===================== */
+
 .whatsapp-float{
   position:fixed;
   right:18px;
@@ -289,26 +413,36 @@ nav a.active{ color:var(--text); }
   height:56px;
   border-radius:999px;
   background:rgba(20,20,20,.92);
+  border:1px solid rgba(255,255,255,.10);
   display:flex;
   align-items:center;
   justify-content:center;
   z-index:9999;
   box-shadow:0 18px 55px rgba(0,0,0,.18);
+  transition:transform .2s ease, opacity .2s ease;
 }
+
+.whatsapp-float:hover{
+  transform:translateY(-2px);
+  opacity:.95;
+}
+
 .whatsapp-float img{
   width:28px;
   height:28px;
+  display:block;
 }
 
-/* Responsive */
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
 @media (max-width:980px){
-  .hero,
-  .gallery,
-  .projects-grid,
-  .shop-grid,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-  .lux-form{ grid-template-columns:1fr; }
+  .hero{ grid-template-columns:1fr; }
+  .projects-grid{ grid-template-columns:1fr; }
+  .featured-grid{ grid-template-columns:1fr; }
+  .shop-grid{ grid-template-columns:1fr; }
+
+  .contact-grid{ grid-template-columns:1fr; }
   .contact-photo{ min-height:420px; }
+  .lux-form{ grid-template-columns:1fr; }
 }
